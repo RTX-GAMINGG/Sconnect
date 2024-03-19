@@ -94,6 +94,8 @@ server.on('upgrade', (request, socket, head) => {
 app.get('/', (req, res) => {
   const WebSocketURL = `wss://${req.get('host')}`;
   console.log(`WebSocket server is running at: ${WebSocketURL}`);
+  const indexPath = path.join(__dirname, 'index.html');
+  res.sendFile(indexPath);
 });
 
 const PORT = process.env.PORT || 3000;
